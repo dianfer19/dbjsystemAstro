@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import H1 from "../components/h1.astro";
+import InfoLayout from "../layouts/InfoLayout.astro";
+import brenda from "../assets/Brenda.jpg";
+import cessio from "../assets/Cessio.jpg";
+import nginx from "../assets/nginx.jpg";
+import portainer from "../assets/portainer.jpg";
+
+const projects = [
+    {
+        title: "Inventario",
+        description: "Desarrollo de inventario con administración de mesas con Django, Celery y JS",
+        image: brenda
+    },
+    {
+        title: "Factoring",
+        description: "Implementación de sistema de factoring con Kanban en JS puro",
+        image: cessio
+    },
+    {
+        title: "Nginx",
+        description: "Administración de proxy reverso para aplicaciones",
+        image: nginx
+    },
+    {
+        title: "Portainer",
+        description: "Administración de contenedores de Sistemas.",
+        image: portainer
+    }];
+---
+
+<InfoLayout>
+    <div class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh">
+        <H1> Proyectos </H1>
+
+        <div class="mt-4 sm:mt-12 grid gap-8 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+            {projects.map((project) => (
+                    <div class="bg-zinc-900/50 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                        <Image
+                                src={project.image}
+                                alt={project.title}
+                                class="aspect-[1/1.33] object-center object-cover w-full"
+                        />
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold text-zinc-100">{project.title}</h2>
+                            <p class="text-sm text-zinc-400 mt-1">{project.description}</p>
+                        </div>
+                    </div>
+            ))}
+        </div>
+    </div>
+</InfoLayout>

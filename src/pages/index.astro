@@ -11,26 +11,14 @@ import Navigation from "../components/navigation";
     <main>
         <div class="group relative w-full min-h-dvh flex items-center justify-center">
             <div class="absolute w-full h-dvh -z-10">
-                <!--<WarpBackground-->
-                <!--        color1="#09090b"-->
-                <!--        color2="#27272a"-->
-                <!--        color3="#52525b"-->
-                <!--        speed={0.6}-->
-                <!--        swirl={0.5}-->
-                <!--        swirlIterations={10}-->
-                <!--        shapeScale={0.3}-->
-                <!--        client:load-->
-                <!--/>-->
                 <WarpBackground
-                        color1="#000000"
-                        color2="#0a0a0a"
-                        color3="#111111"
-                        speed={0.6}
-                        swirl={0.5}
-                        swirlIterations={10}
-                        shapeScale={0.12}
+                        preset="darkWithGrayAccent"
+                        swirl={0.8}
+                        shapeScale={0.3}
                         client:load
                 />
+
+
 
             </div>
 
@@ -50,9 +38,9 @@ import Navigation from "../components/navigation";
                         </div>
 
                         <Navigation client:load>
-                            <Link href="/blog" variant="secondary">Proyectos</Link>
-                            <Link href="/about" variant="secondary">Nosotros</Link>
-                            <Link href="/contact" variant="secondary">Contacto</Link>
+                            <Link href="/projects" variant="secondary">Proyectos</Link>
+                            <Link href="/" variant="secondary">Nosotros</Link>
+                            <Link href="/" variant="secondary">Contacto</Link>
                         </Navigation>
                     </div>
                 </div>

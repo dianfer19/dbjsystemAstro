@@ -1,13 +1,23 @@
-import {Warp, type WarpProps} from '@paper-design/shaders-react';
+import { Warp, type WarpProps } from '@paper-design/shaders-react';
+import { warpPresets } from '../presets/warpPresets';
 
-export default function WarpBackground(props: WarpProps) {
+type Props = WarpProps & {
+    preset?: keyof typeof warpPresets;
+};
 
-    const defaultProps = {
-        speed: 0.4,
-        rotation: 0.5,
-        style: {width: '100%', height: '100%'}
+export default function WarpBackground({ preset, style, ...rest }: Props) {
+    const selectedPreset = preset ? warpPresets[preset] : {};
+    const mergedProps: WarpProps = {
+        ...selectedPreset,
+        ...rest,
+        style: {
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            inset: 0,
+            ...style,
+        },
     };
 
-    return <Warp {...defaultProps} {...props} style={{...defaultProps.style, ...props.style}}/>;
-
+    return <Warp {...mergedProps} />;
 }
