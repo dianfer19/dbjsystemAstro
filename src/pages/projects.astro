@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import {Image} from 'astro:assets';
 import H1 from "../components/h1.astro";
 import InfoLayout from "../layouts/InfoLayout.astro";
 import brenda from "../assets/Brenda.jpg";
@@ -34,7 +34,7 @@ const projects = [
     <div class="p-4 sm:pt-8 sm:px-12 pb-20 min-h-dvh">
         <H1> Proyectos </H1>
 
-        <div class="mt-4 sm:mt-12 grid gap-8 grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+        <div class="mt-4 sm:mt-12 grid gap-8 grid-cols-4">
             {projects.map((project) => (
                     <div class="bg-zinc-900/50 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                         <Image
